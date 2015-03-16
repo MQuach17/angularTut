@@ -1,5 +1,6 @@
 // create controller named "personController" for the module 'myApp'. Pass in the $scope variable 
-angular.module('myApp',[]).controller('personController',['$scope',function($scope){
+// app references myApp.js 'app' object
+app.controller('personController',['$scope',function($scope){
 
 	// create firstName and lastName variables
 		$scope.firstName= "Mike";
@@ -18,3 +19,4 @@ angular.module('myApp',[]).controller('personController',['$scope',function($sco
         ];
 
 }]);
+

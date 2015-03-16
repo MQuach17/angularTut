@@ -4,6 +4,9 @@
 	<title>Angular.js Tutorial</title>
 	<!-- load angular from cdn -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<!-- import myApp.js as application -->
+	<script type="text/javascript" src="myApp.js"></script>
+
 </head>
 <!-- use data-ng instead of ng- to make it HTML5 valid -->
 <body>
@@ -13,14 +16,14 @@
 		<p>Name: <input type="text" data-ng-model="name"></p>
 
 		<!-- binds "name" model to this p displays -->
-		<p data-ng-bind="name"></p>
+		<p>From input: <span data-ng-bind="name"></span></p>
 
 		<!-- init firstName variable -->
 
 		<div data-ng-init="firstName='Mike'">
 			<!-- bind firstName to the span -->
 			<!-- this firstName will not bind to the variables inside the personController because it is out of scope of personController-->
-			<p>The name is <span ng-bind="firstName"></span></p>
+			<p>From init firstName: <span ng-bind="firstName"></span></p>
 
 		</div>
 
@@ -43,7 +46,25 @@
 			<p>fullName method: {{fullName()}}</p>
 
 			<h3>names array</h3>
+			<!-- use ng-repeat directive to display the names and countries in the "names" array -->
 			<p data-ng-repeat="x in names">{{x.name + ', ' +x.country}}</p>
+
+			<h3>Angular filters</h3>
+				<h4>orderBy country</h4>
+					<ul>
+					<!-- for each x in names array, display the names ordred by country -->
+						<li data-ng-repeat="x in names | orderBy: 'country'">
+							{{x.name + ', ' + x.country}}
+						</li>
+					</ul>
+				<h4>orderBy country, filter by user input</h4>
+					usrInput: <input type="text" data-ng-model="usrInput">
+					<ul>
+					<!-- for each x in names array, display the names ordred by country -->
+						<li data-ng-repeat="x in names | filter:usrInput |orderBy: 'country'">
+							{{x.name + ', ' + x.country}}
+						</li>
+					</ul>
 		</div>
 
 	</div>
