@@ -33,7 +33,7 @@
 			</div>
 
 	<!-- controllers -->
-		<!-- import controller -->
+		<!-- import controller, should be done in head but keep here for example -->
 		<script type="text/javascript" src="personController.js"></script>
 		<!-- declare personController as the controller for this div  -->
 		<div data-ng-controller="personController">
@@ -66,6 +66,40 @@
 						</li>
 					</ul>
 		</div>
+		<!--end personController scope  -->
+
+		<!-- import customerController.js -->
+		<script type="text/javascript" src="customersController.js"></script>
+		<!-- set the scope of customerController to this div -->
+		<div data-ng-controller="customersController">
+			<!-- file at http://www.w3schools.com/website/Customers_JSON.php -->
+			<h3>Names and countries from static JSON file</h3>
+			<ul>
+				<li data-ng-repeat="x in names">
+				<!-- x is an entry, with Name and Country properties -->
+					{{x.Name +', ' + x.Country}} 
+				</li>
+			</ul>
+		</div>
+		<!-- end customerController scope -->
+
+		<!-- ng-disabled directive -->
+		<h3>ng-disabled Directive</h3>
+			<button data-ng-disabled="disableSwitch">Click me</button>
+			</br>
+			<input type="checkbox" data-ng-model="disableSwitch"> Disable click me button
+		
+		<h3>ng-show directive with logic</h3>
+
+			Number Picker 
+			<select data-ng-model="numberPicker">
+				<option value="1" selected="selected">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+			</select>
+			<p data-ng-show="numberPicker >=3">Number picked is >= 3 </p>
+			<p data-ng-show="numberPicker <3">Number picked is < 3 </p>
 
 	</div>
 </body>
