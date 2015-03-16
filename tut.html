@@ -98,8 +98,11 @@
 				<option value="3">3</option>
 				<option value="4">4</option>
 			</select>
-			<p data-ng-show="numberPicker >=3">Number picked is >= 3 </p>
-			<p data-ng-show="numberPicker <3">Number picked is < 3 </p>
+			<ul>
+				<li data-ng-show="numberPicker >=3">Number picked is >= 3 </li>
+				<li data-ng-show="numberPicker <3">Number picked is < 3 </li>	
+			</ul>
+
 
 		<!-- input validation example -->
 		<script type="text/javascript" src="validateController.js"></script>
@@ -115,7 +118,7 @@
   							Username is required.
   						</span>
   					</span>
-  					
+
 				</p>
 				<p>Email:<br>
 				  <input type="email" name="email" ng-model="email" required>
@@ -140,6 +143,9 @@
 			
 		</div>
 		<!-- end input validation -->
+
+		<!-- <div data-ng-include data-src="'partExample.html'"></div> -->
+
 	</div>
 </body>
 </html>
